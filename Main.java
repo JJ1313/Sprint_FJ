@@ -27,6 +27,7 @@ public class Main {
             System.out.println("0 : Finalizar programa");
             System.out.println("Ingrese opcion: ");
             opcion = in.nextLine();
+            String input;
             // --- Salir Programa ---
             if(opcion.equals("0")){
                 System.out.println("Finalizando programa...");
@@ -36,7 +37,6 @@ public class Main {
             // --- Almacenar Cliente ---
             else if(opcion.equals("1")){
                 Cliente cliente = new Cliente();
-                String input;
                 do{ // --- NOMBRE
                     System.out.println("Ingresa nombre: ");
                     input = in.nextLine();
@@ -58,14 +58,14 @@ public class Main {
                 do{ // --- RUT
                     System.out.println("Ingrese rut: ");
                     input = in.nextLine();
-                }while(!Validacion.validarRut(Integer.parseInt(input)));
+                }while(!Validacion.validarRut(input));
                 cliente.setRut(Integer.parseInt(input));
                 cliente.setRun(Integer.parseInt(input));
 
                 do{ // --- TELEFONO
                     System.out.println("Ingrese telefono: ");
                     input = in.nextLine();
-                }while(!Validacion.validarTelefonoCliente(Integer.parseInt(input)));
+                }while(!Validacion.validarTelefonoCliente(input));
                 cliente.setTelefono(input);
 
                 do{ // --- AFP
@@ -77,7 +77,7 @@ public class Main {
                 do{ // --- SISTEMA SALUD
                     System.out.println("Ingrese sistema salud: ");
                     input = in.nextLine();
-                }while(!Validacion.validarSistemaSalud(Byte.parseByte(input)));
+                }while(!Validacion.validarSistemaSalud(input));
                 cliente.setSistemaSalud(Byte.parseByte(input));
 
                 do{ // --- DIRECCION
@@ -95,7 +95,7 @@ public class Main {
                 do{ // --- EDAD
                     System.out.println("Ingrese edad: ");
                     input = in.nextLine();
-                } while(!Validacion.validarEdadCliente(Byte.parseByte(input)));
+                } while(!Validacion.validarEdadCliente(input));
                 cliente.setEdad(Byte.parseByte(input));
 
                 contenedor.almacenarCliente(cliente);
@@ -103,7 +103,6 @@ public class Main {
             // --- Almacenar Profesional ---
             else if(opcion.equals("2")){
                 Profesional profesional = new Profesional();
-                String input;
                 do{ // --- NOMBRE
                     System.out.println("Ingresa nombre: ");
                     input = in.nextLine();
@@ -119,7 +118,7 @@ public class Main {
                 do{ // --- RUT
                     System.out.println("Ingrese rut: ");
                     input = in.nextLine();
-                }while(!Validacion.validarRut(Integer.parseInt(input)));
+                }while(!Validacion.validarRut(input));
                 profesional.setRun(Integer.parseInt(input));
 
                 do{ // --- TITULO
@@ -139,7 +138,6 @@ public class Main {
             // --- Almacenar Administrativo ---
             else if(opcion.equals("3")){
                 Administrativo administrativo = new Administrativo();
-                String input;
                 do{ // --- NOMBRE
                     System.out.println("Ingresa nombre: ");
                     input = in.nextLine();
@@ -155,7 +153,7 @@ public class Main {
                 do{ // --- RUT
                     System.out.println("Ingrese rut: ");
                     input = in.nextLine();
-                }while(!Validacion.validarRut(Integer.parseInt(input)));
+                }while(!Validacion.validarRut(input));
                 administrativo.setRun(Integer.parseInt(input));
 
                 do{ // --- AREA
@@ -176,17 +174,16 @@ public class Main {
             // --- Almacenar Capacitacion ---
             else if(opcion.equals("4")){
                 Capacitacion capacitacion = new Capacitacion();
-                String input;
                 do{ // --- ID
                     System.out.println("Ingrese id: ");
                     input = in.nextLine();
-                }while(!Validacion.validarId(Integer.parseInt(input)));
+                }while(!Validacion.validarId(input));
                 capacitacion.setId(Integer.parseInt(input));
 
                 do{ // --- RUT CLIENTE
                     System.out.println("Ingrese rut cliente: ");
                     input = in.nextLine();
-                }while(!Validacion.validarRut(Integer.parseInt(input)));
+                }while(!Validacion.validarRut(input));
                 capacitacion.setRutCliente(Integer.parseInt(input));
 
                 do{ // --- DIA
@@ -210,13 +207,13 @@ public class Main {
                 do{ // --- DURACION
                     System.out.println("Ingrese duracion: ");
                     input = in.nextLine();
-                }while(!Validacion.validarDuracion(Integer.parseInt(input)));
+                }while(!Validacion.validarDuracion(input));
                 capacitacion.setDuracion(Integer.parseInt(input));
 
                 do{ // --- CANTIDAD ASISTENTE
                     System.out.println("Ingrese cantidad asistente: ");
                     input = in.nextLine();
-                }while(!Validacion.validarCantAsistentes(Integer.parseInt(input)));
+                }while(!Validacion.validarCantAsistentes(input));
                 capacitacion.setCantAsistentes(Integer.parseInt(input));
 
                 contenedor.almacenarCapacitacion(capacitacion);
@@ -224,9 +221,11 @@ public class Main {
 
             // --- Eliminar Usuario ---
             else if(opcion.equals("5")){
-                System.out.println("Ingrese rut usuario a eliminar: ");
-                int rutEliminar = Integer.parseInt(in.nextLine());
-                contenedor.eliminarUsuario(rutEliminar);
+                do{ // --- RUT
+                    System.out.println("Ingrese rut usuario a eliminar: ");
+                    input = in.nextLine();
+                }while(!Validacion.validarRut(input));
+                contenedor.eliminarUsuario(Integer.parseInt(input));
             }
 
             // --- Listar Usuario ---
