@@ -1,3 +1,3 @@
 public interface Asesoria {
-    public void analizarUsuario();
+    void analizarUsuario();
 }
