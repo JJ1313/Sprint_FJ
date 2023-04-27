@@ -1,37 +1,40 @@
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-/* Creamos un Constructor privado de la clase Profesional con padre en Usuario*/
-public class Profesional extends Usuario{
+public class Profesional extends Usuario implements  Asesoria{
     private String titulo;
-    private String fecha;
+    private Date fechaIngreso;
 
-    /* Creamos un Constructor vacio de la clase Profesional*/
-    public Profesional() {
-
-    }
-
-    /* Creamos un Constructor publico de la clase Profesional*/
-    public Profesional(String titulo, String fecha, String nombre, String fechanacimiento,int rut) throws ParseException {
-        super(nombre, fechanacimiento, rut);
+    Profesional(){}
+    Profesional(String nombre, String fechaNacimiento, int run, String titulo, String fechaIngreso) throws ParseException {
+        super(nombre, fechaNacimiento, run);
         this.titulo = titulo;
-        this.fecha = fecha;
+        this.fechaIngreso = new SimpleDateFormat("dd/MM/yyyy").parse(fechaIngreso);
     }
 
-    public String getTitulo() {
-        return titulo;
+    // ------ GETTER ------
+    public String getTitulo() {return titulo;}
+    public Date getFechaIngreso() {return fechaIngreso;}
+
+    // ------ SETTER ------
+    public void setTitulo(String titulo) {this.titulo = titulo;}
+    public void setFechaIngreso(String fechaIngreso) throws ParseException {
+        this.fechaIngreso = new SimpleDateFormat("dd/MM/yyyy").parse(fechaIngreso);
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    // ------ METHODS ------
+    @Override
+    public String toString() {
+        return super.toString() +
+                " Profesional{" +
+                "titulo='" + titulo + '\'' +
+                ", fechaIngreso=" + fechaIngreso +
+                '}';
     }
 
-    public String getFecha() {
-        return fecha;
+    public void analizarUsuario(){
+        super.analizarUsuario();
+        System.out.println(" " + this.titulo + " " + this.fechaIngreso);
     }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-
 }

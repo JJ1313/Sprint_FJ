@@ -1,32 +1,36 @@
-/* Creamos un Constructor privado de la clase Administrativo con padre en Usuario*/
-public class Administrativo extends Usuario{
+import java.text.ParseException;
+
+public class Administrativo extends Usuario implements  Asesoria{
     private String area;
-    private String experienciaprevia;
+    private String experienciaPrevia;
 
-    /* Creamos un Constructor vacio Administrativo*/
-    public Administrativo() {
-
-    }
-
-    /* Creamos un Constructor publico de Administrativo*/
-    public Administrativo(String area, String experienciaprevia) {
+    Administrativo(){}
+    Administrativo(String nombre, String fechaNacimiento, int run, String area, String experienciaPrevia) throws ParseException {
+        super(nombre, fechaNacimiento, run);
         this.area = area;
-        this.experienciaprevia = experienciaprevia;
+        this.experienciaPrevia = experienciaPrevia;
+    }
+    // ------ GETTER ------
+    public String getArea() {return area;}
+    public String getExperienciaPrevia() {return experienciaPrevia;}
+
+    // ------ SETTER ------
+    public void setArea(String area) {this.area = area;}
+    public void setExperienciaPrevia(String experienciaPrevia) {this.experienciaPrevia = experienciaPrevia;}
+
+    // ------ METHODS ------
+    @Override
+    public String toString() {
+        return  super.toString() +
+                " Administrativo{" +
+                "area='" + area + '\'' +
+                ", experienciaPrevia='" + experienciaPrevia + '\'' +
+                '}';
     }
 
-    public String getArea() {
-        return area;
+    public void analizarUsuario(){
+        super.analizarUsuario();
+        System.out.println(" " + this.area + " " + this.experienciaPrevia);
     }
 
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getExperienciaprevia() {
-        return experienciaprevia;
-    }
-
-    public void setExperienciaprevia(String experienciaprevia) {
-        this.experienciaprevia = experienciaprevia;
-    }
 }

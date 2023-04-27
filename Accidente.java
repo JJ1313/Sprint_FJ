@@ -1,83 +1,54 @@
-/* Creamos un Constructor privado de la clase Accidente*/
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Accidente {
     private int id;
-    private int rut;
-    private String dia;
+    private int rutCliente;
+    private Date fecha;
     private String hora;
     private String lugar;
     private String origen;
-    private String consecuencias;
+    private String consecuencia;
 
-    /* Creamos un Constructor vacio de la clase Accidente*/
-    public Accidente(){
-
-    }
-
-    /* Creamos un Constructor publico de la clase Accidente*/
-    public Accidente(int id, int rut, String dia, String hora, String lugar, String origen, String consecuencias) {
+    Accidente(){}
+    Accidente(int id, int rutCliente, String fecha, String hora, String lugar, String origen, String consecuencia) throws ParseException {
         this.id = id;
-        this.rut= rut;
-        this.dia = dia;
+        this.rutCliente = rutCliente;
+        this.fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
         this.hora = hora;
         this.lugar = lugar;
         this.origen = origen;
-        this.consecuencias = consecuencias;
-
+        this.consecuencia = consecuencia;
     }
+    // ------ SETTER ------
+    public void setId(int id) {this.id = id;}
+    public void setRutCliente(int rutCliente) {this.rutCliente = rutCliente;}
+    public void setFecha(String fecha) throws ParseException {new SimpleDateFormat("dd/MM/yyyy").parse(fecha);}
+    public void setHora(String hora) {this.hora = hora;}
+    public void setLugar(String lugar) {this.lugar = lugar;}
+    public void setOrigen(String origen) {this.origen = origen;}
+    public void setConsecuencia(String consecuencia) {this.consecuencia = consecuencia;}
 
-    public int getId() {
-        return id;
-    }
+    // ------ GETTER ------
+    public int getId() {return id;}
+    public int getRutCliente() {return rutCliente;}
+    public Date getFecha() {return fecha;}
+    public String getHora() {return hora;}
+    public String getLugar() {return lugar;}
+    public String getOrigen() {return origen;}
+    public String getConsecuencia() {return consecuencia;}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getRut() {
-        return rut;
-    }
-
-    public void setRut(int rut) {
-        this.rut = rut;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    public String getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(String origen) {
-        this.origen = origen;
-    }
-
-    public String getConsecuencias() {
-        return consecuencias;
-    }
-
-    public void setConsecuencias(String consecuencias) {
-        this.consecuencias = consecuencias;
+    // ------ METHODS ------
+    public String toString() {
+        return "Accidente{" +
+                "id=" + id +
+                ", rutCliente=" + rutCliente +
+                ", fecha=" + fecha +
+                ", hora='" + hora + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", origen='" + origen + '\'' +
+                ", consecuencia='" + consecuencia + '\'' +
+                '}';
     }
 }

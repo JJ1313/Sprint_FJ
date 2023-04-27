@@ -1,81 +1,55 @@
-/* Creamos un Constructor privado de Capacitacion*/
 public class Capacitacion {
     private int id;
-    private int rut;
+    private int rutCliente;
     private String dia;
     private String hora;
     private String lugar;
-    private String duracion;
-    private int cantidadasistentes;
-
-    /* Creamos un Constructor vacio de Capacitacion*/
-    public Capacitacion(int i, String s, String lunes, String s1, String salaDeReuniones, String introducciónALaSeguridadLaboral) {
-
-    }
-    /* Creamos un Constructor publico de Capacitacion*/
-    public Capacitacion(int id, int rut, String dia, String hora, String lugar, String duracion, int cantidadasistentes) {
+    private int duracion;
+    private int cantAsistentes;
+    Capacitacion(){}
+    Capacitacion(int id, int rutCliente, String dia, String hora, String lugar, int duracion, int cantAsistentes){
         this.id = id;
-        this.rut= rut;
+        this.rutCliente = rutCliente;
         this.dia = dia;
-        this.hora = hora;
+        this.hora =hora;
         this.lugar = lugar;
         this.duracion = duracion;
-        this.cantidadasistentes = cantidadasistentes;
+        this.cantAsistentes = cantAsistentes;
     }
 
-    public int getId() {
-        return id;
-    }
+    // ------ SETTER/GETTER ------
+    public int getId() {return id;}
+    public int getRutCliente() {return rutCliente;}
+    public String getDia() {return dia;}
+    public String getHora() {return hora;}
+    public String getLugar() {return lugar;}
+    public int getDuracion() {return duracion;}
+    public int getCantAsistentes() {return cantAsistentes;}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) {this.id = id;}
+    public void setRutCliente(int rutCliente) {this.rutCliente = rutCliente;}
+    public void setDia(String dia) {this.dia = dia;}
+    public void setHora(String hora) {this.hora = hora;}
+    public void setLugar(String lugar) {this.lugar = lugar;}
+    public void setDuracion(int duracion) {this.duracion = duracion;}
+    public void setCantAsistentes(int cantAsistentes) {this.cantAsistentes = cantAsistentes;}
 
-    public int getRut() {
-        return rut;
-    }
+    // ------ METODOS ------
 
-    public void setRut(int rut) {
-        this.rut = rut;
+    @Override
+    public String toString() {
+        return "Capacitacion{" +
+                "id=" + id +
+                ", rutCliente=" + rutCliente +
+                ", dia='" + dia + '\'' +
+                ", hora='" + hora + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", duracion=" + duracion +
+                ", cantAsistentes=" + cantAsistentes +
+                '}';
     }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    public String getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
-    }
-
-    public int getCantidadasistentes() {
-        return cantidadasistentes;
-    }
-
-    public void setCantidadasistentes(int cantidadasistentes) {
-        this.cantidadasistentes = cantidadasistentes;
+    public String mostrarDetalle(){
+        return "La capacitacion sera en " + this.lugar + " a las " + this.hora +
+                " del dia " + this.dia + " , y durara " + this.duracion + " minutos";
     }
 }

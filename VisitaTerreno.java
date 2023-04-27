@@ -1,76 +1,56 @@
-/* Creamos un Constructor privado de Visitaterreno*/
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class VisitaTerreno {
     private int id;
-    private int run;
-    private String dia;
+    private int rutCliente;
+    private Date fecha;
     private String hora;
     private String lugar;
-    private String comentarios;
+    private String comentario;
 
-    /* Creamos un Constructor vacio de VisitaTerreno*/
-    public VisitaTerreno() {
+    private ArrayList<Revision> revisiones = new ArrayList<Revision>();
 
-    }
-
-    /* Creamos un Constructor publico de VisitaTerreno*/
-    public VisitaTerreno(int id, int run, String dia, String hora, String lugar, String comentarios) {
+    VisitaTerreno(){}
+    VisitaTerreno(int id, int rutCliente, String fecha, String hora, String lugar, String comentario) throws ParseException {
         this.id = id;
-        this.run = run;
-        this.dia = dia;
+        this.rutCliente = rutCliente;
+        this.fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
         this.hora = hora;
         this.lugar = lugar;
-        this.comentarios = comentarios;
+        this.comentario = comentario;
     }
+    // ------ SETTER ------
+    public void setId(int id) {this.id = id;}
+    public void setRutCliente(int rutCliente) {this.rutCliente = rutCliente;}
+    public void setFecha(String fecha) throws ParseException {new SimpleDateFormat("dd/MM/yyyy").parse(fecha);}
+    public void setHora(String hora) {this.hora = hora;}
+    public void setLugar(String lugar) {this.lugar = lugar;}
+    public void setComentario(String comentario) {this.comentario = comentario;}
 
-    public int getId() {
-        return id;
+    // ------ GETTER ------
+    public int getId() {return id;}
+    public int getRutCliente() {return rutCliente;}
+    public Date getFecha() {return fecha;}
+    public String getHora() {return hora;}
+    public String getLugar() {return lugar;}
+    public String getComentario() {return comentario;}
+    public ArrayList<Revision> getRevisiones(){return revisiones;}
+
+    // ------ METHODS ------
+    public String toString() {
+        return "VisitaTerreno{" +
+                "id=" + id +
+                ", rutCliente=" + rutCliente +
+                ", fecha=" + fecha +
+                ", hora='" + hora + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", comentario='" + comentario + '\'' +
+                '}';
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getRun() {
-        return run;
-    }
-
-    public void setRun(int run) {
-        this.run = run;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    public String getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(String comentarios) {
-        this.comentarios = comentarios;
-    }
-
-    public void agregarRevision(Revision revision) {
+    public void agregarRevision(Revision revision){
+        revisiones.add(revision);
     }
 }
-
