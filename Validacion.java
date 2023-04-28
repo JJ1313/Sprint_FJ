@@ -3,9 +3,19 @@ import java.util.Date;
 
 public class Validacion{
     // ------ Validaciones Generales ------
-    public static boolean validarRut(int rut){
-        if(rut < 0  || rut > 99999999){return false;}
-        return true;
+    public static boolean validarRut(String rut){
+        try{
+            int rutInt = Integer.parseInt(rut);
+            if(rutInt < 0  || rutInt > 99999999){
+                System.out.println("Valores entre 0 y 99999999");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
     public static boolean validarFecha(String fecha){
         try{
@@ -26,10 +36,21 @@ public class Validacion{
             return false;
         }
     }
-    public static boolean validarId(int id){
-        if(id == 0){return false;}
-        return true;
+    public static boolean validarId(String id){
+        try{
+            int idInt = Integer.parseInt(id);
+            if(idInt == 0 ){
+                System.out.println("Dato Obligatorio");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
+
     public static boolean validarLugar(String lugar){
         if(lugar.length()<10 || lugar.length()>50){return false;}
         return true;
@@ -55,17 +76,37 @@ public class Validacion{
         }
         return true;
     }
-    public static boolean validarTelefonoCliente(int telefono){
-        if(telefono == 0){return false;}
-        return true;
+    public static boolean validarTelefonoCliente(String telefono){
+        try{
+            int telefonoInt = Integer.parseInt(telefono);
+            if(telefonoInt == 0 ){
+                System.out.println("Dato Obligatorio");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
     public static boolean validarAfpCliente(String afp){
         if(afp.length() < 4 || afp.length() >30){return false;}
         return true;
     }
-    public static boolean validarSistemaSalud(byte sistema){
-        if(sistema != 1 && sistema != 2){return false;}
-        return true;
+    public static boolean validarSistemaSalud(String sistema){
+        try{
+            int sistemaInt = Byte.parseByte(sistema);
+            if(sistemaInt != 1 && sistemaInt != 2){
+                System.out.println("Solo 1 o 2");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
     public static boolean validarDireccionCliente(String dir){
         if(dir.length() > 70){return false;}
@@ -75,9 +116,19 @@ public class Validacion{
         if(comuna.length() > 50){return false;}
         return true;
     }
-    public static boolean validarEdadCliente(int edad){
-        if(edad < 0 || edad >= 150){return false;}
-        return true;
+    public static boolean validarEdadCliente(String edad){
+        try{
+            int edadInt = Integer.parseInt(edad);
+            if(edadInt < 0  || edadInt > 150){
+                System.out.println("Valores entre 0 y 150");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
 
     // ------ Validaciones Profesional ------
@@ -105,13 +156,33 @@ public class Validacion{
         return false;
     }
 
-    public static boolean validarDuracion(int duracion){
-        if(duracion > 70){return false;}
-        return true;
+    public static boolean validarDuracion(String duracion){
+        try{
+            int duracionInt = Integer.parseInt(duracion);
+            if(duracionInt > 70){
+                System.out.println("Valores menor a 70");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
-    public static boolean validarCantAsistentes(int cantidad){
-        if(cantidad >1000){return false;}
-        return true;
+    public static boolean validarCantAsistentes(String cantidad){
+        try{
+            int cantidadInt = Integer.parseInt(cantidad);
+            if(cantidadInt > 1000){
+                System.out.println("Valores menor a 1000");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
 
     // ------ Validaciones Accidentes ------
@@ -139,8 +210,18 @@ public class Validacion{
         if(detalle.length() >100){return false;}
         return  true;
     }
-    public static boolean validarEstadoRevision(int estado){
-        if(estado != 1 || estado != 2 || estado != 3){return false;}
-        return true;
+    public static boolean validarEstadoRevision(String estado){
+        try{
+            int estadoInt = Integer.parseInt(estado);
+            if(estadoInt != 1 || estadoInt != 2 || estadoInt != 3){
+                System.out.println("Valores 1, 2 o 3");
+                return false;
+            }
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Solo numeros");
+            return false;
+        }
     }
 }
