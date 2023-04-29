@@ -22,6 +22,7 @@ public class Validacion{
             Date fechaDate = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
         }
         catch (Exception e){
+            System.out.println("La fecha debe tener el formato dd/MM/yyyy");
             return false;
         }
         return true;
