@@ -1,73 +1,41 @@
-/* Creamos un Constructor privado de la clase Revision*/
 public class Revision {
     private int id;
-    private int rut;
-    private String dia;
-    private String hora;
-    private String lugar;
-    private String comentarios;
+    private int idVisitaTerreno;
+    private String nombreRevision;
+    private String detalle;
+    private int estado;
 
-    /* Creamos un Constructor vacio de la clase Revision*/
-    public Revision() {
-
-    }
-
-    /* Creamos un Constructor publico de la clase Revision*/
-    public Revision(int id, int rut, String dia, String hora, String lugar, String comentarios) {
+    Revision(){}
+    Revision(int id, int idVisitaTerreno, String nombreRevision, String detalle, int estado){
         this.id = id;
-        this.rut = rut;
-        this.dia = dia;
-        this.hora = hora;
-        this.lugar = lugar;
-        this.comentarios = comentarios;
-
+        this.idVisitaTerreno = idVisitaTerreno;
+        this.nombreRevision = nombreRevision;
+        this.detalle = detalle;
+        this.estado = estado;
     }
 
-    public int getId() {
-        return id;
-    }
+    // ------ SETTER ------
+    public void setId(int id) {this.id = id;}
+    public void setIdVisitaTerreno(int idVisitaTerreno) {this.idVisitaTerreno = idVisitaTerreno;}
+    public void setNombreRevision(String nombreRevision) {this.nombreRevision = nombreRevision;}
+    public void setDetalle(String detalle) {this.detalle = detalle;}
+    public void setEstado(int estado) {this.estado = estado;}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    // ------ GETTER ------
+    public int getId() {return id;}
+    public int getIdVisitaTerreno() {return idVisitaTerreno;}
+    public String getNombreRevision() {return nombreRevision;}
+    public String getDetalle() {return detalle;}
+    public int getEstado() {return estado;}
 
-    public int getRut() {
-        return rut;
-    }
-
-    public void setRut(int rut) {
-        this.rut = rut;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    public String getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(String comentarios) {
-        this.comentarios = comentarios;
+    // ------ METHODS ------
+    public String toString() {
+        return "Revision{" +
+                "id=" + id +
+                ", idVisitaTerreno=" + idVisitaTerreno +
+                ", nombreRevision='" + nombreRevision + '\'' +
+                ", detalle='" + detalle + '\'' +
+                ", estado=" + estado +
+                '}';
     }
 }
